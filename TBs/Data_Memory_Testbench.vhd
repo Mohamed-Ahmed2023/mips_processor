@@ -29,7 +29,6 @@ BEGIN
 
 	tree : Data_Memory PORT MAP(
 		clk => clk,
-		--enable => enable,
 		MemRead => MemRead,
 		MemWrite => MemWrite,
 		Address => Address,
@@ -46,7 +45,6 @@ BEGIN
 		WAIT FOR clk_period/2;
 	END PROCESS;
 
-	--
 	PROCESS
 	BEGIN
 
@@ -54,7 +52,6 @@ BEGIN
 
 		MemRead <= '1';
 		MemWrite <= '0';
-		--enable <= '0';
 		Address <= x"0000_0000";
 		WriteData <= x"0000_0000";
 

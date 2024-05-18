@@ -4,7 +4,6 @@ USE IEEE.STD_LOGIC_1164.ALL;
 ENTITY ControlUnit IS
 	PORT (
 		OpCode : IN STD_LOGIC_VECTOR (5 DOWNTO 0);
-		--Funct : in  STD_LOGIC_VECTOR (5 downto 0);
 		MemtoReg : OUT STD_LOGIC;
 		MemWrite : OUT STD_LOGIC;
 		MemRead : OUT STD_LOGIC;
@@ -12,8 +11,6 @@ ENTITY ControlUnit IS
 		AluSrc : OUT STD_LOGIC;
 		RegDst : OUT STD_LOGIC;
 		RegWrite : OUT STD_LOGIC;
-
-		-- Jump : out std_logic;
 		AluOp : OUT STD_LOGIC_VECTOR (2 DOWNTO 0));
 END ControlUnit;
 ARCHITECTURE Behavioral OF ControlUnit IS
@@ -31,7 +28,6 @@ BEGIN
 		"0000000000" WHEN OTHERS;
 
 	RegDst <= aux(9);
-	--jump <= aux(9);
 	Branch <= aux(8);
 	MemRead <= aux(7);
 	MemtoReg <= aux(6);

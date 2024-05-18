@@ -15,52 +15,37 @@ ARCHITECTURE behavior OF instruction_memory_testbench IS
    END COMPONENT;
    --inputs
    SIGNAL READ_ADDRESS : STD_LOGIC_VECTOR(31 DOWNTO 0) := (OTHERS => '0');
-
    --outputs
    SIGNAL INSTRUCTION : STD_LOGIC_VECTOR(31 DOWNTO 0);
-   -- No clocks detected in port list. Replace <clock> below with 
-   -- appropriate port name 
-
 BEGIN
-
    -- instantiate the Unit Under Test (UUT)
    uut : instruction_memory PORT MAP(
       READ_ADDRESS => READ_ADDRESS,
       INSTRUCTION => INSTRUCTION
    );
-
    -- Stimulus process
    stim_proc : PROCESS
    BEGIN
       -- hold reset state for 100 ns.
       WAIT FOR 100 ns;
 
-      -- insert stimulus here 
-
       READ_ADDRESS <= x"0000_0000";
-
       WAIT FOR 30 ns;
 
       READ_ADDRESS <= x"0000_0004";
-
       WAIT FOR 30 ns;
 
       READ_ADDRESS <= x"0000_0008";
-
       WAIT FOR 30 ns;
 
       READ_ADDRESS <= x"0000_000C";
-
       WAIT FOR 30 ns;
 
       READ_ADDRESS <= x"0000_0010";
-
       WAIT FOR 30 ns;
 
       READ_ADDRESS <= x"0000_0014";
-
       WAIT FOR 30 ns;
       WAIT;
    END PROCESS;
-
 END;

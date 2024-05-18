@@ -78,7 +78,6 @@ ARCHITECTURE behave OF Mips_Processor IS
 			AluSrc : OUT STD_LOGIC;
 			RegDst : OUT STD_LOGIC;
 			RegWrite : OUT STD_LOGIC;
-			-- Jump : out std_logic;
 			AluOp : OUT STD_LOGIC_VECTOR (2 DOWNTO 0));
 	END COMPONENT;
 	-- ALU control 
@@ -87,7 +86,6 @@ ARCHITECTURE behave OF Mips_Processor IS
 			funct : IN STD_LOGIC_VECTOR(5 DOWNTO 0);
 			alu_op : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
 			alu_ctrl : OUT STD_LOGIC_VECTOR(2 DOWNTO 0)
-			--JR: out std_logic
 		);
 	END COMPONENT;
 
@@ -164,7 +162,6 @@ BEGIN
 	shift_l : Shift_left_2 PORT MAP(sign_extend_output, shift_adder);
 	adder_mux_map : adder PORT MAP(next_pc, shift_adder, adder_mux);
 
-	--and_map:and_gate port map(Branch , zero ,and_out ); 
 	last_mux_map : mux_32bits PORT MAP(and_out, next_pc, adder_mux, pc_Mux);
 
 	data_memory_map : Data_Memory PORT MAP(clk, MemRead, MemWrite, alu_result, readData2, memory_mux);
