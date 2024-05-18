@@ -1,0 +1,14 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.ALL;
+
+ENTITY SignExtend IS
+    PORT (
+        INPUT : IN STD_LOGIC_VECTOR (15 DOWNTO 0);
+        OUTPUT : OUT STD_LOGIC_VECTOR (31 DOWNTO 0));
+END SignExtend;
+
+ARCHITECTURE Behavioral OF SignExtend IS
+BEGIN
+    -- Sign extension logic
+    OUTPUT <= "0000000000000000" & INPUT(15 DOWNTO 0);
+END Behavioral;
